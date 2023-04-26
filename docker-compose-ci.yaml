@@ -2,8 +2,6 @@ version: "3.9"
 services:
   api:
     image: pulsercoder/skypro_pkuzmin_app:$GITHUB_REF_NAME-$GITHUB_RUN_ID
-    networks:
-      - my-network
     ports:
       - 80:80
     depends_on:
@@ -13,8 +11,6 @@ services:
       - ./docker_config.py:/code/config.py
   pg:
     image: postgres:latest
-    networks:
-      - my-network
     environment:
       POSTGRES_USER: $DB_USER
       POSTGRES_PASSWORD: $DB_PASSWORD
@@ -26,5 +22,3 @@ services:
       interval: 5s
       timeout: 10s
       retries: 5
-networks:
-  my-network:
