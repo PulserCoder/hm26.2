@@ -12,7 +12,7 @@ services:
       pg:
         condition: service_healthy
     volumes:
-      - ./docker_config.py:/code/config.py
+      - ./docker-config.py:/code/config.py
   pg:
     image: postgres:latest
     networks:
